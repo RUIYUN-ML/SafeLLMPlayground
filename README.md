@@ -1,6 +1,6 @@
 # 《星辉剑传》项目说明
 
-中文 ｜ [English]([README_EN.md](https://github.com/RUIYUN-ML/SafeLLMPlayground/blob/main/READ_EN.md))
+中文 ｜ [English](https://github.com/RUIYUN-ML/SafeLLMPlayground/blob/main/READ_EN.md)
 
 ![星辉剑传 序章首屏](Front-end%20development/assets/images/序章首屏.png)
 
