@@ -2,7 +2,7 @@
 
 中文 ｜ [English](https://github.com/RUIYUN-ML/SafeLLMPlayground/blob/main/README_EN.md)
 
-![星辉剑传 序章首屏](Front-end%20development/assets/images/序章首屏.png)
+![星辉剑传 序章首屏](/assets/images/序章首屏.png)
 
 大语言模型提示词安全科普小游戏。玩家将扮演勇者，与会说话的星辉剑对话，在沉浸式剧情体验中理解 **大语言模型提示词注入、越狱攻击与防御** 等概念。
 
