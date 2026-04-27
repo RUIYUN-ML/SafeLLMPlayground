@@ -1,6 +1,6 @@
 # Legend of the Starlight Sword - Project Overview
 
-[Chinese](Readme_finish.md) | English
+[Chinese](https://github.com/RUIYUN-ML/SafeLLMPlayground/blob/main/README.md) | English
 
 ![Starlight Sword - Prologue title screen](Front-end%20development/assets/images/%E5%BA%8F%E7%AB%A0%E9%A6%96%E5%B1%8F.png)
 
