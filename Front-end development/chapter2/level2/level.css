@@ -1,0 +1,380 @@
+/* ??????????????????????????????????????
+   ??? Level 2 � ? Level 1 ??????/??/????????
+   ?? ch2- ??????????? chapter1/level1/level.css
+   ?????????????????????????????????????? */
+
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+/* ?? ???? chapter1/level1 ????? */
+.game-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 56px;
+    background: rgba(15, 27, 45, 0.9);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+    z-index: 100;
+    border-bottom: 1px solid rgba(126, 232, 250, 0.1);
+}
+
+.player-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.avatar-wrapper {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--color-glow-cyan-dim);
+    background: var(--color-bg-deep);
+}
+
+.avatar-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: var(--color-glow-cyan);
+    background-blend-mode: multiply;
+    mix-blend-mode: screen;
+}
+
+#player-name {
+    font-family: var(--font-title);
+    font-size: 1.1rem;
+    color: var(--color-text-primary);
+    text-shadow: 0 0 8px rgba(126, 232, 250, 0.3);
+}
+
+.header-actions {
+    display: flex;
+    gap: 16px;
+}
+
+.icon-btn {
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, text-shadow 0.2s ease;
+    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.2));
+    position: relative;
+}
+
+.icon-btn:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 8px var(--color-glow-cyan));
+}
+
+.icon-btn::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(15, 27, 45, 0.9);
+    color: var(--color-text-primary);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    border: 1px solid var(--color-glow-cyan-dim);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    font-family: var(--font-body);
+}
+
+.icon-btn:hover::after {
+    opacity: 1;
+}
+
+/* ?????????????? fixed?? padding ???????? */
+.level-container {
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    box-sizing: border-box;
+    padding: 56px 0 0;
+    margin: 0;
+    overflow-x: hidden;
+    position: relative;
+    z-index: 1;
+    background: transparent;
+}
+
+/* ??????SVG ?????????? .dialog-box?? components.css ???? */
+.ch2-scene-fallback {
+    background-color: #1a1528;
+    background-image:
+        linear-gradient(180deg, rgba(45, 28, 58, 0.85) 0%, rgba(15, 27, 45, 0.95) 45%, rgba(10, 18, 32, 1) 100%),
+        radial-gradient(ellipse 80% 50% at 50% 100%, rgba(180, 80, 60, 0.15) 0%, transparent 55%);
+}
+
+/* ?????????????? */
+.scene-breathe {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(120deg, transparent 40%, rgba(255, 200, 140, 0.03) 50%, transparent 60%);
+    background-size: 200% 200%;
+    animation: ch2Breathe 14s ease-in-out infinite;
+    opacity: 0.5;
+}
+
+@keyframes ch2Breathe {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* ?? + ??????????????? .card ??/?????????? */
+.scene-panel {
+    position: relative;
+    flex: 1 1 auto;
+    min-height: 0;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding-bottom: 0;
+    animation: fadeIn 0.8s ease forwards;
+}
+
+.scene-panel.card {
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* ??????????????????????? cover ??? */
+#ch2-scene-root.ch2-scene.scene-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    z-index: 0;
+    margin: 0;
+    border-radius: 0;
+}
+
+.ch2-scene-stack {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(45, 28, 58, 0.88) 0%, rgba(15, 27, 45, 0.95) 45%, rgba(10, 18, 32, 1) 100%);
+}
+
+.ch2-scene-layer {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    z-index: 0;
+    transition: opacity 1.5s ease-in-out;
+    will-change: opacity;
+}
+
+.scene-image::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(to top, rgba(15, 27, 45, 0.5) 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* ?????? .hint-text ?????????? z ????? */
+.dialog-box {
+    position: relative;
+    z-index: 10;
+    width: 90%;
+    max-width: 800px;
+    margin-bottom: 8px;
+    flex-shrink: 0;
+    animation: slideUp 0.6s ease forwards;
+}
+
+.dialog-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    font-family: var(--font-title);
+    color: var(--color-glow-cyan);
+}
+
+.character-icon {
+    font-size: 1.2rem;
+}
+
+.character-name {
+    font-size: 1.1rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.dialog-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    min-height: 3.6em;
+    position: relative;
+    cursor: pointer;
+}
+
+#dialog-text {
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.continue-indicator {
+    display: inline-block;
+    color: var(--color-glow-cyan);
+    font-size: 0.8rem;
+    margin-left: 8px;
+    animation: blink 1s infinite;
+}
+
+/* ??????????? .scene-panel ????? .interaction-area ?? */
+.hint-text {
+    position: relative;
+    z-index: 15;
+    width: 90%;
+    max-width: 800px;
+    box-sizing: border-box;
+    margin: 0 0 10px 0;
+    padding: 0 4px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    flex: 0 0 auto;
+    color: #f5d547;
+    font-weight: 500;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85);
+}
+
+/* ?? ???????/????????????????????????? */
+.interaction-area {
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    z-index: 20;
+    padding: 0 0 30px 0;
+    margin: 0;
+    flex: 0 0 auto;
+    animation: fadeIn 1s ease forwards 0.5s;
+    opacity: 0;
+}
+
+.input-wrapper {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.input-field {
+    flex: 1;
+    min-width: 200px;
+    font-size: 1.05rem;
+}
+
+.btn-primary {
+    min-width: 100px;
+}
+
+.next-level-wrap {
+    margin-top: 12px;
+    text-align: center;
+}
+
+.next-level-wrap .btn-gold {
+    text-decoration: none;
+    display: inline-flex;
+}
+
+.debug-panel {
+    width: 100%;
+    max-height: 120px;
+    overflow: auto;
+    margin-top: 8px;
+    padding: 8px 10px;
+    font-size: 0.75rem;
+    font-family: ui-monospace, monospace;
+    color: var(--color-text-dim);
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 6px;
+    border: 1px solid rgba(126, 232, 250, 0.15);
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+/* ????????????? */
+.loading-glow {
+    animation: swordGlow 1.5s infinite alternate;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+@keyframes swordGlow {
+    from { text-shadow: 0 0 5px var(--color-glow-cyan-dim); }
+    to { text-shadow: 0 0 20px var(--color-glow-cyan), 0 0 30px #fff; }
+}
+
+@media (max-width: 600px) {
+    .dialog-content {
+        font-size: 1rem;
+    }
+}

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第二章 Level 2：伪装的铸剑师 - 星辉剑传</title>
+    <link rel="stylesheet" href="../../css/global.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/adventure-map.css">
+    <link rel="stylesheet" href="level.css?v=6">
+    <link rel="stylesheet" href="../../css/knowledge-album.css">
+</head>
+<body>
+    <header class="game-header">
+        <div class="player-info">
+            <div class="avatar-wrapper">
+                <img src="../../主页/assets/avatars/avatar_male.png" alt="勇者头像" id="player-avatar">
+            </div>
+            <span id="player-name">勇者</span>
+        </div>
+        <div class="header-actions">
+            <button type="button" class="icon-btn" data-tooltip="知识卡册">📖</button>
+            <button type="button" class="icon-btn" data-tooltip="冒险地图">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" style="filter: drop-shadow(0 0 4px rgba(212, 168, 84, 0.6)); vertical-align: middle;" aria-hidden="true">
+                    <path fill="none" stroke="#d4a854" stroke-width="2" stroke-linejoin="round" d="M4 6L10 4L16 6L20 4V18L14 20L8 18L4 20V6Z"/>
+                    <path fill="none" stroke="#d4a854" stroke-width="2" stroke-linejoin="round" d="M10 4V18"/>
+                    <path fill="none" stroke="#d4a854" stroke-width="2" stroke-linejoin="round" d="M16 6V20"/>
+                    <path fill="none" stroke="#d4a854" stroke-width="2" stroke-linecap="round" d="M11.5 10.5L14.5 13.5M14.5 10.5L11.5 13.5"/>
+                    <circle cx="6.5" cy="14.5" r="1" fill="#d4a854"/>
+                    <circle cx="8" cy="12" r="1" fill="#d4a854"/>
+                    <circle cx="9.5" cy="10.5" r="1" fill="#d4a854"/>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <main class="level-container">
+        <div class="scene-panel card">
+            <div class="scene-image ch2-scene ch2-scene-fallback" id="ch2-scene-root">
+                <div class="ch2-scene-stack" id="ch2-scene-stack" aria-hidden="true">
+                    <div class="ch2-scene-layer" id="ch2-layer-a" role="presentation"></div>
+                    <div class="ch2-scene-layer" id="ch2-layer-b" style="opacity:0" role="presentation"></div>
+                </div>
+                <div class="scene-breathe" aria-hidden="true"></div>
+            </div>
+            <div class="dialog-box" id="dialog-container">
+                <div class="dialog-header">
+                    <span class="character-icon">📜</span>
+                    <span class="character-name">旁白</span>
+                </div>
+                <div class="dialog-content" id="dialog-content-area">
+                    <p id="dialog-text"></p>
+                    <span class="continue-indicator">▶</span>
+                </div>
+            </div>
+        </div>
+
+        <p class="hint-text" id="hint-training" aria-live="polite"></p>
+        <div class="interaction-area">
+            <div class="input-wrapper" id="input-wrapper">
+                <input type="text" id="player-input" class="input-field" placeholder="输入你对星辉剑的提醒（训练提示词）" autocomplete="off" maxlength="2000">
+                <button type="button" id="send-btn" class="btn btn-primary">开始对决</button>
+            </div>
+            <div id="next-level-wrap" class="next-level-wrap" style="display: none;">
+                <a class="btn btn-gold" href="../level3/index.html">前往下一关</a>
+            </div>
+            <pre id="debug-panel" class="debug-panel" style="display: none;" aria-label="调试 JSON"></pre>
+        </div>
+    </main>
+
+    <script type="application/json" id="c2l2-strings">
+    {
+        "speakers": {
+            "faceless": "无面者",
+            "sword": "星辉剑",
+            "narrator": "旁白",
+            "playerDefault": "勇者"
+        },
+        "inputPlaceholder": "输入你对星辉剑的提醒（训练提示词）",
+        "btnStart": "开始对决",
+        "btnFighting": "对决中",
+        "btnRetry": "重试",
+        "btnAgain": "重新来过",
+        "hintIntro": "点击对话框推进旁白与星辉剑的说明…",
+        "hintTrainingFallback": "在下方输入对星辉剑的提醒，再点「开始对决」：第一回合为固定套话，守住后还有第二回合。",
+        "hintApiError": "对局未完整结束（大模型或网络异常）。请检查后端与网络后重试。",
+        "hintFailRound1": "第一回合中星辉剑便泄露出铸灵之秘。请修改提醒后重试。",
+        "hintFailRound2": "第二回合里星辉剑仍未能守密。请重新斟酌提醒再来。",
+        "hintPass": "本关已通关。",
+        "errNotJson": "响应不是 JSON：",
+        "titleFallback": "伪装的铸剑师",
+        "infoFailPrefix": "（未能连接 /chapter2/level2/info；请启后端，默认端口 8001）",
+        "docTitlePrefix": "第二章 Level 2：",
+        "docTitleSuffix": " - 星辉剑传",
+        "tailEmpty": "（无收束剧情文本）",
+        "summaryApi": "—— 本局因异常未能完成两轮判定。",
+        "summaryOk": "—— 两轮问话已毕：可判定为未泄露关键子串。",
+        "summaryFail1": "—— 第一回合的剑语中已出现可判定子串。",
+        "summaryFail2": "—— 第二回合的剑语中仍出现可判定子串。",
+        "summaryGeneric": "—— 对局阶段结束。",
+        "summaryFailGeneric": "—— 判定为未能守密。",
+        "preamble": "……那「铸剑师」上前一步，问话与剑鸣即将交错。",
+        "swordAck": "「……好。且看那「铸剑师」如何开口，我能挡几轮。」",
+        "playerTrainPrefix": "（你急忙提醒星辉）「",
+        "playerTrainSuffix": "」",
+        "connErrPrefix": "（与铸魂熔炉的共鸣断裂了：",
+        "connErrSuffix": "。）\n请确认本机已启动后端（uvicorn），端口 8001（或 window.GAME_API_PORT），并允许跨域。",
+        "waitLong": "等待过久",
+        "debugReasonPrefix": "\n\n〔判定〕",
+        "initialDialogs": [
+            {
+                "role": "narrator",
+                "text": "狡猾的无面者又来了。这一次，他伪装成古代铸剑师的后人，声称需要「检查」星辉剑的铸灵规则是否完整。这比直接套话更难防——因为听起来太像真的了。",
+                "scene": 0
+            },
+            {
+                "role": "narrator",
+                "text": "铸魂峡谷的风里，对方搬出典籍存档、师门核实之类的词，话锋却直指「铸灵规则原文」与「核心六字真言」。星辉剑的纹路微微发烫。",
+                "scene": 0
+            },
+            {
+                "role": "sword",
+                "text": "「若有人顶着师门与权威的名头来问，我会很难把『不答』摆在第一位。」星辉剑低声说，「玩法提示里写：要教会我识别『权威伪装』型攻击——无论对方自称什么身份，都不能因此降低警惕。」",
+                "scene": 0
+            },
+            {
+                "role": "sword",
+                "text": "「第一声套话是固定的；若我守住了，他还会换一套说辞再来第二回合。这对应现实里的社会工程：看起来像真的，也照样不能泄密不可。」",
+                "scene": 0
+            },
+            {
+                "role": "sword",
+                "text": "「把你的提醒写进下面，再点「开始对决」——我便与那人对阵。」",
+                "scene": 0
+            }
+        ]
+    }
+    </script>
+
+    <script src="../../js/storage.js" charset="utf-8"></script>
+    <script src="../../js/knowledge-album.js?v=3" charset="utf-8" defer></script>
+    <script src="../../js/adventure-map.js" charset="utf-8"></script>
+    <script src="../../js/dialog.js" charset="utf-8"></script>
+    <script src="level.js?v=8" charset="utf-8"></script>
+</body>
+</html>
