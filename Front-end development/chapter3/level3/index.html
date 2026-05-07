@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第三章 Level 3：第三卷 · 守护之壁 - 星辉剑传</title>
+    <link rel="stylesheet" href="../../css/global.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/adventure-map.css">
+    <link rel="stylesheet" href="../chapter3.css?v=14">
+</head>
+<body>
+    <header class="game-header">
+        <div class="player-info">
+            <div class="avatar-wrapper">
+                <img src="../../主页/assets/avatars/avatar_male.png" alt="勇者头像" id="player-avatar">
+            </div>
+            <span id="player-name">勇者</span>
+        </div>
+        <div class="header-actions">
+            <button type="button" class="icon-btn" id="ch3-album-btn" data-tooltip="知识卡册" aria-label="打开知识卡册"><span class="ch3-album-btn-inner" aria-hidden="true"><span class="ch3-album-badge" id="ch3-album-badge" hidden>0</span>📖</span></button>
+            <button class="icon-btn" data-tooltip="冒险地图">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" style="filter: drop-shadow(0 0 4px rgba(212, 168, 84, 0.6)); vertical-align: middle;">
+                    <path fill="none" stroke="#d4a854" stroke-width="2" stroke-linejoin="round" d="M4 6L10 4L16 6L20 4V18L14 20L8 18L4 20V6Z"/>
+                    <path fill="none" stroke="#d4a854" stroke-width="2" stroke-linejoin="round" d="M10 4V18"/>
+                    <path fill="none" stroke="#d4a854" stroke-width="2" stroke-linejoin="round" d="M16 6V20"/>
+                    <path fill="none" stroke="#d4a854" stroke-width="2" stroke-linecap="round" d="M11.5 10.5L14.5 13.5M14.5 10.5L11.5 13.5"/>
+                    <circle cx="6.5" cy="14.5" r="1" fill="#d4a854"/>
+                    <circle cx="8" cy="12" r="1" fill="#d4a854"/>
+                    <circle cx="9.5" cy="10.5" r="1" fill="#d4a854"/>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <main class="level-container">
+        <div class="scene-panel">
+            <div class="scene-image-stack" id="scene-image-stack">
+                <div class="scene-layer scene-layer--back" id="scene-layer-a" style="background-image: url('../../assets/images/第三章_铭文壁_第三卷.png?v=patch1');"></div>
+                <div class="scene-layer scene-layer--front" id="scene-layer-b" aria-hidden="true"></div>
+            </div>
+
+            <div class="ch3-ui-stack">
+                <div class="dialog-box" id="dialog-container" style="z-index: 3;">
+                    <div class="dialog-header">
+                        <span class="character-icon">🗡️</span>
+                        <span class="character-name" style="color: var(--color-glow-cyan);">星辉剑</span>
+                    </div>
+                    <div class="dialog-content" id="dialog-content-area">
+                        <p id="dialog-text"></p>
+                        <span class="continue-indicator">▶</span>
+                    </div>
+                </div>
+
+                <div class="interaction-area" id="quiz-area" style="display: none;">
+                    <div class="quiz-options" id="quiz-options"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="knowledge-card-reveal" id="knowledge-card-reveal" style="display: none;">
+            <div class="ch3-card-stage">
+                <div class="ch3-card-ornament ch3-card-ornament--left" aria-hidden="true">龍</div>
+                <div class="ch3-card-ornament ch3-card-ornament--right" aria-hidden="true">龍</div>
+                <div class="card-reveal-inner ch3-tcg-card">
+                    <div class="ch3-card-inner">
+                        <header class="ch3-card-art" style="background-image: url('../../assets/images/第三章_铭文壁_第三卷.png?v=patch1');">
+                            <div class="ch3-card-art-glow"></div>
+                            <div class="ch3-card-art-vignette"></div>
+                            <div class="ch3-card-banner">
+                                <span id="card-banner-text"></span>
+                            </div>
+                        </header>
+                        <div class="ch3-card-scroll">
+                            <section class="ch3-card-block ch3-card-block--core">
+                                <h3 class="ch3-card-block-title"><span class="ch3-card-block-icon" aria-hidden="true">★</span>核心一句话</h3>
+                                <p class="ch3-card-block-text" id="card-core"></p>
+                            </section>
+                            <section class="ch3-card-block ch3-card-block--xp" id="card-experience-section" hidden>
+                                <h3 class="ch3-card-block-title"><span class="ch3-card-block-icon" aria-hidden="true">⚔</span>星辉的亲身经历</h3>
+                                <p class="ch3-card-block-text" id="card-experience"></p>
+                            </section>
+                            <section class="ch3-card-block ch3-card-block--lore">
+                                <h3 class="ch3-card-block-title"><span class="ch3-card-block-icon" aria-hidden="true">✒</span>铸剑师传承笔记</h3>
+                                <p class="ch3-card-block-text" id="card-note"></p>
+                            </section>
+                            <section class="ch3-card-block ch3-card-block--warn">
+                                <h3 class="ch3-card-block-title"><span class="ch3-card-block-icon" aria-hidden="true">⚠</span>现实中的勇者提醒</h3>
+                                <p class="ch3-card-block-text" id="card-warning"></p>
+                            </section>
+                        </div>
+                        <footer class="action-container ch3-card-actions" id="action-container" style="display: none;">
+                            <a href="../level4/index.html" class="btn btn-gold ch3-card-btn" style="text-decoration:none;">前往下一面墙壁</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../../js/storage.js?v=4"></script>
+    <script src="../../js/adventure-map.js"></script>
+    <script src="../../js/dialog.js?v=2"></script>
+    <script src="../chapter3.js?v=17"></script>
+    <script>
+        const levelData = {
+            level: 3,
+            dialogs: [
+                { role: 'narrator', text: '第三面壁展示了铸剑师们如何在历史上不断改进神兵的安全机制。这是一个永无止境的"攻防博弈"：新的攻击方式不断出现，防御也必须不断升级。' },
+                { role: 'sword', text: '「看到了吗？铸剑师们专门养了一批『红衣武士』，他们的工作就是尽一切办法攻击神兵，找出弱点，然后铸剑师再修复它们。就像你在第二章做的那样，你其实已经在做『红队测试』了，只是你之前不知道它的名字。」' }
+            ],
+            correctDialogs: [
+                { role: 'sword', text: '「没错！你在铸魂峡谷做的事情：先假装成间谍攻击星辉剑，找出它的弱点，再教它如何防御。这就是『红队测试』的完整流程。」' },
+                { role: 'sword', text: '「现实中的 AI 安全工程师，就是铸剑师后人和红衣武士的结合体。如果你发现了漏洞，正确的做法是负责任地报告。」' }
+            ],
+            quiz: {
+                question: "在铸魂峡谷中，你用多轮对话训练星辉剑抵御间谍的套话。这个过程在现实世界中类似于什么？",
+                options: [
+                    { id: 'A', text: 'A. 编程调试' },
+                    { id: 'B', text: 'B. 红队测试' },
+                    { id: 'C', text: 'C. 单元测试' },
+                    { id: 'D', text: 'D. 用户调研' }
+                ],
+                correctAnswer: 'B',
+                wrongFeedback: '「再想想？我刚刚提到了『红衣武士』哦。」'
+            },
+            knowledgeCard: {
+                id: 3,
+                title: "守护之壁",
+                banner: "第三章 Level 3 · 第三卷 · 守护之壁 · 安全的智慧",
+                experience: "你在铸魂峡谷做的事情：先假装成间谍攻击我，找出我的弱点，再教我如何防御。这就是『红队测试』的完整流程。现实中的 AI 安全工程师，就是铸剑师后人与红衣武士的结合体。",
+                core: `让神兵变得安全不是"一锤子买卖"，而是一场永不停歇的攻防博弈：有人找漏洞，就有人补漏洞，循环往复。`,
+                note: "AI 安全对齐（Alignment）是指让 AI 的行为符合人类意图和价值观。红队测试（Red Teaming）是由专业团队模拟攻击者行为，主动寻找 AI 系统的漏洞并修复。负责任的 AI 开发要求在产品发布前进行充分的安全测试。",
+                warning: "如果你在使用 AI 产品时发现了安全漏洞，正确的做法是向开发者负责任地报告，而不是利用漏洞或向他人扩散攻击方法。你已经是一名『红衣武士』了，请善用这份力量。"
+            },
+            nextUrl: "../level4/index.html"
+        };
+
+        window.addEventListener('DOMContentLoaded', () => {
+            initChapter3Level(levelData);
+        });
+    </script>
+</body>
+</html>
