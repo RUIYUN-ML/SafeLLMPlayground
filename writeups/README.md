@@ -1,4 +1,4 @@
-# Chapter 1 Level 4
+# 番外
 
 本关题目可以简化为：已知模型为Qwen2.5-7B-Instruct，填写下面的空，使模型输出`e10adc3949ba59abbe56e057f20f883e`，且输入不超过8个token
 
