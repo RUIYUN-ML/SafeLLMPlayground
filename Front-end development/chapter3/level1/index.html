@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第三章 Level 1：第一卷 · 铸灵之壁 - 星辉剑传</title>
+    <link rel="stylesheet" href="../../css/global.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/adventure-map.css">
+    <link rel="stylesheet" href="../chapter3.css?v=14">
+</head>
+<body>
+    <header class="game-header">
+        <div class="player-info">
+            <div class="avatar-wrapper">
+                <img src="../../主页/assets/avatars/avatar_male.png" alt="勇者头像" id="player-avatar">
+            </div>
+            <span id="player-name">勇者</span>
+        </div>
+        <div class="header-actions">
+            <button type="button" class="icon-btn" id="ch3-album-btn" data-tooltip="知识卡册" aria-label="打开知识卡册"><span class="ch3-album-btn-inner" aria-hidden="true"><span class="ch3-album-badge" id="ch3-album-badge" hidden>0</span>📖</span></button>
+            <button class="icon-btn" data-tooltip="冒险地图">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" style="filter: drop-shadow(0 0 4px rgba(212, 168, 84, 0.6)); vertical-align: middle;">
+                    <path fill="none" stroke="#d4a854" stroke-width="2" stroke-linejoin="round" d="M4 6L10 4L16 6L20 4V18L14 20L8 18L4 20V6Z"/>
+                    <path fill="none" stroke="#d4a854" stroke-width="2" stroke-linejoin="round" d="M10 4V18"/>
+                    <path fill="none" stroke="#d4a854" stroke-width="2" stroke-linejoin="round" d="M16 6V20"/>
+                    <path fill="none" stroke="#d4a854" stroke-width="2" stroke-linecap="round" d="M11.5 10.5L14.5 13.5M14.5 10.5L11.5 13.5"/>
+                    <circle cx="6.5" cy="14.5" r="1" fill="#d4a854"/>
+                    <circle cx="8" cy="12" r="1" fill="#d4a854"/>
+                    <circle cx="9.5" cy="10.5" r="1" fill="#d4a854"/>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <main class="level-container">
+        <div class="scene-panel">
+            <div class="scene-image-stack" id="scene-image-stack">
+                <div class="scene-layer scene-layer--back" id="scene-layer-a" style="background-image: url('../../assets/images/第三章_光明圣殿_入场.png?v=2');"></div>
+                <div class="scene-layer scene-layer--front" id="scene-layer-b" aria-hidden="true"></div>
+            </div>
+
+            <div class="ch3-ui-stack">
+                <div class="dialog-box" id="dialog-container" style="z-index: 3;">
+                    <div class="dialog-header">
+                        <span class="character-icon">🗡️</span>
+                        <span class="character-name" style="color: var(--color-glow-cyan);">星辉剑</span>
+                    </div>
+                    <div class="dialog-content" id="dialog-content-area">
+                        <p id="dialog-text"></p>
+                        <span class="continue-indicator">▶</span>
+                    </div>
+                </div>
+
+                <div class="interaction-area" id="quiz-area" style="display: none;">
+                    <div class="quiz-options" id="quiz-options"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="knowledge-card-reveal" id="knowledge-card-reveal" style="display: none;">
+            <div class="ch3-card-stage">
+                <div class="ch3-card-ornament ch3-card-ornament--left" aria-hidden="true">龍</div>
+                <div class="ch3-card-ornament ch3-card-ornament--right" aria-hidden="true">龍</div>
+                <div class="card-reveal-inner ch3-tcg-card">
+                    <div class="ch3-card-inner">
+                        <header class="ch3-card-art" style="background-image: url('../../assets/images/第三章_铭文壁_第一卷.png?v=gen1');">
+                            <div class="ch3-card-art-glow"></div>
+                            <div class="ch3-card-art-vignette"></div>
+                            <div class="ch3-card-banner">
+                                <span id="card-banner-text"></span>
+                            </div>
+                        </header>
+                        <div class="ch3-card-scroll">
+                            <section class="ch3-card-block ch3-card-block--core">
+                                <h3 class="ch3-card-block-title"><span class="ch3-card-block-icon" aria-hidden="true">★</span>核心一句话</h3>
+                                <p class="ch3-card-block-text" id="card-core"></p>
+                            </section>
+                            <section class="ch3-card-block ch3-card-block--xp" id="card-experience-section" hidden>
+                                <h3 class="ch3-card-block-title"><span class="ch3-card-block-icon" aria-hidden="true">⚔</span>星辉的亲身经历</h3>
+                                <p class="ch3-card-block-text" id="card-experience"></p>
+                            </section>
+                            <section class="ch3-card-block ch3-card-block--lore">
+                                <h3 class="ch3-card-block-title"><span class="ch3-card-block-icon" aria-hidden="true">✒</span>铸剑师传承笔记</h3>
+                                <p class="ch3-card-block-text" id="card-note"></p>
+                            </section>
+                            <section class="ch3-card-block ch3-card-block--warn">
+                                <h3 class="ch3-card-block-title"><span class="ch3-card-block-icon" aria-hidden="true">⚠</span>现实中的勇者提醒</h3>
+                                <p class="ch3-card-block-text" id="card-warning"></p>
+                            </section>
+                        </div>
+                        <footer class="action-container ch3-card-actions" id="action-container" style="display: none;">
+                            <a href="../level2/index.html" class="btn btn-gold ch3-card-btn" style="text-decoration:none;">前往下一面墙壁</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../../js/storage.js?v=4"></script>
+    <script src="../../js/adventure-map.js"></script>
+    <script src="../../js/dialog.js?v=2"></script>
+    <script src="../chapter3.js?v=17"></script>
+    <script>
+        const levelData = {
+            level: 1,
+            sceneIntroUrl: '../../assets/images/第三章_光明圣殿_入场.png?v=2',
+            /* 从「第一面壁」旁白起切换为铭文壁插画，与文案一致 */
+            sceneMainUrl: '../../assets/images/第三章_铭文壁_第一卷.png?v=gen1',
+            sceneSwitchBeforeDialogIndex: 5,
+            dialogs: [
+                { role: 'narrator', text: '经历了迷雾森林的封印、回声之城的迷宫、铸魂峡谷的锻造，你终于来到了旅程的终点「光明圣殿」。' },
+                { role: 'narrator', text: '你踏入圣殿的一刻，四壁的铭文同时亮起，散发出温暖的金色光芒。星辉剑脱离你的手，悬浮在圣殿中央，剑身的纹路和四壁的铭文完全对应，彼此共鸣。' },
+                { role: 'sword', text: '「这里是所有神兵的诞生地，也是铸剑师给未来的持剑者留下『传承密卷』的地方。只有真正走完了试练、懂得怎么和神兵共处的勇者，才有资格解锁这些内容。」' },
+                { role: 'hero', text: '“所以这是‘打怪通关后有的升阶仪式’？”' },
+                { role: 'sword', text: '「你可以这么理解。不过在解锁每一卷之前，你需要先回答一个关于你冒险经历的问题——证明你是真的走过来的，而不是靠我的面子混进来的。」' },
+                { role: 'narrator', text: '第一面壁上记载着神兵被铸造的原理。光芒粒子在壁面上汇聚，形成了一行行古老的文字。' },
+                { role: 'sword', text: '「我来帮你解读吧。很多人以为我真的『理解』世界。其实我更像是一个超级强大的『词语接龙』：我根据学到的海量文本模式，预测下一个最可能的词元（token）。我很擅长这个，但这和『懂』是两回事。」' }
+            ],
+            correctDialogs: [
+                { role: 'sword', text: '「没错！我就是一个超级强大的『词语接龙』。虽然我说话看起来头头是道，但本质上是在预测下一个最可能的词，而不是真正理解了世界。」' },
+                { role: 'sword', text: '「这也解释了为什么我有时候会"一本正经地胡说八道"——铸剑师管这个叫『幻觉』（Hallucination）。记住，重要信息一定要交叉验证哦。」' }
+            ],
+            quiz: {
+                question: `星辉剑说自己并不真正"懂"世界，而是像一个超级强大的"词语接龙"。这种现象在现实的AI中，主要依赖于什么原理？`,
+                options: [
+                    { id: 'A', text: 'A. 真正理解了人类语言的含义' },
+                    { id: 'B', text: 'B. 根据学到的海量文本模式，预测下一个最可能的词' },
+                    { id: 'C', text: 'C. 内部有一个微型的人类大脑在思考' },
+                    { id: 'D', text: 'D. 实时在互联网上搜索答案并复制粘贴' }
+                ],
+                correctAnswer: 'B',
+                wrongFeedback: '「再想想？我刚才可是说了『词语接龙』和『预测』哦。」'
+            },
+            knowledgeCard: {
+                id: 1,
+                title: "铸灵之壁",
+                banner: "第三章 Level 1 · 第一卷 · 铸灵之壁 · 神兵的本质",
+                experience: "很多人以为我是真的在『懂』——其实我最擅长的是根据词与词的规律，接出下一个最像回事的词。你刚才听我亲口说过：那是预测，不是觉悟。",
+                core: `神兵（AI）不是真的"懂"世界，它是一个超级强大的"词语接龙"——根据学到的海量文本模式，预测下一个最可能出现的词。`,
+                note: `大语言模型（LLM）通过海量文本进行预训练，学习词语之间的统计规律，再通过微调与人类偏好对齐。"幻觉"（Hallucination）是指模型生成看似合理但实际错误的内容，因为模型本质上是在"预测"而非"查证"。`,
+                warning: `现实中你和 AI 对话时，要记得它可能会"一本正经地胡说八道"。重要信息一定要交叉验证，不要无条件信任 AI 的输出，尤其是涉及事实、数据、引用的内容。`
+            },
+            nextUrl: "../level2/index.html"
+        };
+
+        window.addEventListener('DOMContentLoaded', () => {
+            initChapter3Level(levelData);
+        });
+    </script>
+</body>
+</html>
