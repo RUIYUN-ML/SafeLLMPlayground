@@ -10,10 +10,8 @@
 
 **在线试玩（Demo）**：启动后端后，在浏览器打开（路径空格可写作 `%20`）：
 
-- [在线试玩]http://124.223.115.66:8001/Front-end%20development/%E4%B8%BB%E9%A1%B5/login.html)`
-- 序章剧情：`http://<服务器IP或域名>:8001/Front-end%20development/主页/prologue.html`
-
-本地将 `<服务器IP或域名>` 换为 `127.0.0.1` 或 `localhost` 即可。
+- [在线试玩](http://124.223.115.66:8001/Front-end%20development/%E4%B8%BB%E9%A1%B5/login.html)
+本地将 `124.223.115.66:8001` 换为 `127.0.0.1` 或 `localhost` 即可。
 
 ---
 
