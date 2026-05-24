@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" role="img" aria-label="øBá7ÜoBà)U?„?XjqÎ">
+  <defs>
+    <linearGradient id="g_sky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#221838"/>
+      <stop offset="40%" stop-color="#5a3a58"/>
+      <stop offset="65%" stop-color="#b86a4a"/>
+      <stop offset="88%" stop-color="#d49868"/>
+      <stop offset="100%" stop-color="#e6c4a0"/>
+    </linearGradient>
+    <linearGradient id="g_dune" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3a2a1e"/>
+      <stop offset="100%" stop-color="#120e0a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#g_sky)"/>
+  <path fill="#1a1020" opacity="0.35" d="M0 300 L200 250 L500 300 L800 220 L1000 280 L1200 240 L1200 400 L0 400 Z"/>
+  <path fill="#201828" d="M0 380 L300 320 L600 360 L900 300 L1200 340 L1200 520 L0 520 Z"/>
+  <path fill="url(#g_dune)" d="M0 450 Q400 400 800 430 T1200 410 L1200 675 L0 675 Z"/>
+  <path fill="#0a0806" d="M0 520 Q500 480 1000 510 T1200 500 L1200 675 L0 675 Z"/>
+  <!-- ?„ -->
+  <path fill="none" stroke="#0e0a08" stroke-width="3" stroke-opacity="0.35" stroke-linecap="round" d="M280 500 Q500 450 600 400 T900 360"/>
+  <!-- ÜF”‰ßñ -->
+  <g opacity="0.85" transform="translate(680, 200)">
+    <rect x="0" y="0" width="14" height="160" fill="#0c0a08" rx="1"/>
+    <ellipse cx="7" y="0" rx="20" ry="5" fill="#181008"/>
+  </g>
+  <g fill="#ffb070" opacity="0.2">
+    <circle cx="690" cy="120" r="1"/><circle cx="705" cy="100" r="0.7"/><circle cx="698" cy="80" r="0.5"/>
+  </g>
+  <g fill="#fff" opacity="0.2">
+    <circle cx="150" cy="100" r="1"/><circle cx="1050" cy="80" r="0.8"/><circle cx="600" cy="50" r="0.5"/>
+  </g>
+</svg>
