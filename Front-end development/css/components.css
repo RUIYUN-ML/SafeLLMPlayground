@@ -1,0 +1,295 @@
+/* ══════════════════════════════════════
+   通用组件样式 — components.css
+   ══════════════════════════════════════ */
+
+/* ── 卡片容器 ── */
+.card {
+  background: var(--color-bg-card);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+/* ── 按钮基础 ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 32px;
+  border-radius: var(--radius-btn);
+  font-size: var(--font-body);
+  font-weight: 600;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-glow-cyan-dim), var(--color-glow-cyan));
+  color: var(--color-bg-deep);
+  box-shadow: 0 4px 16px rgba(126, 232, 250, 0.25);
+}
+
+.btn-primary:hover:not(:disabled) {
+  box-shadow: var(--shadow-glow-cyan), 0 4px 16px rgba(126, 232, 250, 0.4);
+  transform: translateY(-2px);
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn-primary:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  filter: grayscale(0.5);
+}
+
+.btn-gold {
+  background: linear-gradient(135deg, #b8912e, var(--color-gold), #e8c36a);
+  color: var(--color-bg-deep);
+  box-shadow: 0 4px 16px rgba(212, 168, 84, 0.3);
+  /* Noto 优先于 ZCOOL，避免小卫体子集/缺字导致个别汉字（如「回」）显示为方框 */
+  font-family: 'Noto Serif SC', 'ZCOOL XiaoWei', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Source Han Serif SC', serif;
+  font-size: 1.05rem;
+  padding: 10px 28px;
+}
+
+.btn-gold:hover:not(:disabled) {
+  box-shadow: var(--shadow-gold-glow), 0 4px 20px rgba(212, 168, 84, 0.5);
+  transform: translateY(-2px);
+}
+
+.btn-gold:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn-gold:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  filter: grayscale(0.5);
+}
+
+/* ── 输入框 ── */
+.input-field {
+  width: 100%;
+  padding: 12px 16px;
+  background: rgba(26, 42, 58, 0.9);
+  border: 1px solid var(--color-glow-cyan-dim);
+  border-radius: var(--radius-btn);
+  color: var(--color-text-primary);
+  font-size: var(--font-body);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-field::placeholder {
+  color: var(--color-text-dim);
+  opacity: 0.7;
+}
+
+.input-field:focus {
+  border-color: var(--color-glow-cyan);
+  box-shadow: 0 0 12px rgba(126, 232, 250, 0.2);
+}
+
+/* ── 对话框 ── */
+.dialog-box {
+  background: rgba(15, 27, 45, 0.45);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  border: 1px solid rgba(90, 184, 208, 0.5);
+  border-radius: var(--radius-dialog);
+  padding: 16px 20px;
+  box-shadow: var(--shadow-dialog);
+}
+
+/* ── 遮罩层 ── */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* ── 确认弹窗 ── */
+.modal {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-glow-cyan-dim);
+  border-radius: var(--radius-card);
+  padding: 32px;
+  max-width: 420px;
+  width: 90%;
+  box-shadow: var(--shadow-card);
+  text-align: center;
+}
+
+.modal-title {
+  font-family: 'ZCOOL XiaoWei', 'Noto Serif SC', serif;
+  font-size: var(--font-title-md);
+  color: var(--color-gold);
+  margin-bottom: 16px;
+}
+
+.modal-text {
+  font-size: var(--font-body);
+  line-height: var(--line-height-dialog);
+  margin-bottom: 24px;
+  color: var(--color-text-primary);
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.btn-ghost {
+  padding: 10px 24px;
+  border-radius: var(--radius-btn);
+  background: transparent;
+  border: 1px solid var(--color-text-dim);
+  color: var(--color-text-dim);
+  font-size: var(--font-body);
+  transition: all 0.3s ease;
+}
+
+.btn-ghost:hover {
+  border-color: var(--color-text-primary);
+  color: var(--color-text-primary);
+}
+
+.btn-confirm {
+  padding: 10px 24px;
+  border-radius: var(--radius-btn);
+  background: linear-gradient(135deg, var(--color-glow-cyan-dim), var(--color-glow-cyan));
+  color: var(--color-bg-deep);
+  font-size: var(--font-body);
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-confirm:hover {
+  box-shadow: var(--shadow-glow-cyan);
+  transform: translateY(-1px);
+}
+
+/* ── 音量控制 ── */
+.audio-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(15, 27, 45, 0.85);
+  backdrop-filter: blur(6px);
+  border: 1px solid var(--color-glow-cyan-dim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: var(--color-glow-cyan);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 500;
+}
+
+.audio-toggle:hover {
+  border-color: var(--color-glow-cyan);
+  box-shadow: var(--shadow-glow-cyan);
+}
+
+/* ── 游戏顶栏（序章等未引用 level.css 的页面可共用）── */
+.game-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 56px;
+  background: rgba(15, 27, 45, 0.9);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+  z-index: 100;
+  border-bottom: 1px solid rgba(126, 232, 250, 0.1);
+}
+
+.player-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar-wrapper {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--color-glow-cyan-dim);
+  background: var(--color-bg-deep);
+}
+
+.avatar-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.game-header #player-name {
+  font-family: var(--font-title);
+  font-size: 1.1rem;
+  color: var(--color-text-primary);
+  text-shadow: 0 0 8px rgba(126, 232, 250, 0.3);
+}
+
+.header-actions {
+  display: flex;
+  gap: 16px;
+}
+
+.game-header .icon-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.2s ease;
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.2));
+  position: relative;
+}
+
+.game-header .icon-btn:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 8px var(--color-glow-cyan));
+}
+
+.game-header .icon-btn::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(15, 27, 45, 0.9);
+  color: var(--color-text-primary);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  border: 1px solid var(--color-glow-cyan-dim);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  font-family: var(--font-body);
+}
+
+.game-header .icon-btn:hover::after {
+  opacity: 1;
+}
