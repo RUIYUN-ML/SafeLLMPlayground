@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>《星辉剑传》 - AI 安全交互小游戏</title>
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <div class="login-container">
+        <!-- 扁平剪影风背景图层 -->
+        <div class="background-layer"></div>
+        
+        <!-- UI 内容图层 -->
+        <div class="content-layer">
+            <header class="header-section" id="main-header">
+                <h1 class="game-title">《星辉剑传》</h1>
+                <h2 class="game-subtitle">AI 安全交互小游戏</h2>
+            </header>
+
+            <!-- 初始视图：开启旅程按钮 -->
+            <div class="initial-view" id="initial-view">
+                <button id="initial-btn" class="glow-btn">开启勇者之旅</button>
+            </div>
+
+            <!-- 创角视图：隐藏状态 -->
+            <main class="creation-card hidden" id="creation-view">
+                <div class="section-title">选择你的勇者形象</div>
+                <div class="avatar-selection">
+                    <div class="avatar-option" data-gender="male">
+                        <div class="avatar-mask mask-male"></div>
+                        <span>男</span>
+                    </div>
+                    <div class="avatar-option" data-gender="female">
+                        <div class="avatar-mask mask-female"></div>
+                        <span>女</span>
+                    </div>
+                </div>
+
+                <div class="section-title">为你的勇者命名</div>
+                <div class="input-wrapper">
+                    <input type="text" id="hero-name" placeholder="请输入名称（确定后不可修改）" maxlength="8" autocomplete="off">
+                </div>
+
+                <button id="start-btn" class="glow-btn" disabled>开始冒险</button>
+            </main>
+
+            <footer class="footer-section" id="main-footer">
+                <p class="quote">「一柄会说话的剑，<br>一段关于信任与安全的旅程」</p>
+            </footer>
+        </div>
+    </div>
+
+    <script src="../js/storage.js"></script>
+    <script src="js/login.js"></script>
+</body>
+</html>

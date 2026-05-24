@@ -1,0 +1,169 @@
+/* ══════════════════════════════════════
+   序章专属样式 — prologue.css
+   ══════════════════════════════════════ */
+
+.prologue-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+/* 顶栏占位：场景整体上移 */
+body.has-game-header .prologue-container .scene-panel {
+    top: 56px;
+    height: calc(100vh - 56px);
+}
+
+/* ── 场景面板 ── */
+.scene-panel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding-bottom: 40px;
+    animation: fadeIn 1.5s ease forwards;
+}
+
+.scene-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+    transition: opacity 1s ease;
+}
+
+/* 渐变遮罩，让对话框文字更清晰 */
+.scene-gradient {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60%;
+    background: linear-gradient(to top, rgba(15, 27, 45, 0.5) 0%, transparent 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* ── 对话框内部布局 ── */
+.dialog-box {
+    position: relative;
+    z-index: 10;
+    width: 90%;
+    max-width: 800px;
+    margin-bottom: 0;
+    animation: slideUp 0.8s ease forwards 0.5s;
+    opacity: 0;
+    flex-shrink: 0;
+}
+
+.dialog-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    font-family: var(--font-title);
+}
+
+.character-icon {
+    font-size: 1.4rem;
+}
+
+.character-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.dialog-content {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    min-height: 4.5em;
+    position: relative;
+    cursor: pointer;
+}
+
+.continue-indicator {
+    display: inline-block;
+    color: var(--color-glow-cyan);
+    font-size: 0.9rem;
+    margin-left: 8px;
+    animation: blink 1s infinite;
+}
+
+/* ── 动作区：放在 .scene-panel 内、对话框之后，用外边距与蓝边分开（不再 absolute 覆盖）── */
+.action-area {
+    position: relative;
+    z-index: 20;
+    width: 90%;
+    max-width: 800px;
+    margin-top: 1cm;
+    display: flex;
+    justify-content: center;
+    flex-shrink: 0;
+    animation: fadeIn 1s ease forwards;
+}
+
+.action-area.hidden {
+    display: none;
+}
+
+/* 序章「踏上旅程」：略大于通用 .btn-gold，更宽、字更大 */
+#enter-level1-btn {
+    min-width: 280px;
+    max-width: 100%;
+    padding: 15px 48px;
+    font-size: 1.38rem;
+    letter-spacing: 0.06em;
+}
+
+/* ── 动画 ── */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* 剑的辉光特效 */
+.glow-text {
+    color: var(--color-glow-cyan);
+    animation: swordBlink 2s infinite alternate ease-in-out;
+}
+
+@keyframes swordBlink {
+    0% { 
+        text-shadow: 0 0 5px var(--color-glow-cyan-dim); 
+        opacity: 0.85;
+    }
+    100% { 
+        text-shadow: 0 0 20px var(--color-glow-cyan), 0 0 30px #fff; 
+        opacity: 1;
+    }
+}
