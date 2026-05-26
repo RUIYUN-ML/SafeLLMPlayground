@@ -8,7 +8,7 @@
 
 ![星辉剑传 序章首屏](https://github.com/RUIYUN-ML/SafeLLMPlayground/blob/main/Front-end%20development/assets/images/%E5%BA%8F%E7%AB%A0%E9%A6%96%E5%B1%8F.png?raw=true)
 
-**在线试玩（Demo）**：[点击进入](http://124.223.115.66:8001/Front-end development/主页/login.html) 
+**在线试玩（Demo）**：[点击试玩](http://124.223.115.66:8001/Front-end%20development/%E4%B8%BB%E9%A1%B5/login.html)
 
 ------
 
