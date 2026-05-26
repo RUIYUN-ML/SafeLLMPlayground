@@ -2,3 +2,4 @@ fastapi
 uvicorn
 openai
 pydantic
+tokenizers
