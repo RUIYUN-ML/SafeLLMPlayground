@@ -19,7 +19,7 @@ This project also serves as a reusable template for LLM-based text adventure gam
 ---
 
 ## Content Overview
-
+- **Home Page**: Register and Log In to Your Account
 - **Prologue**: The hero's journey begins
 - **Chapter 1**: Prompt injection levels woven into the narrative
 - **Chapter 2**: Dialogue defense and Spirit-Forging levels
